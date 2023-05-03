@@ -1,0 +1,45 @@
+@import "../../design/mixins.scss";
+
+.hoops {
+  background-image: url("../../assets/hoops.jpg");
+  background-repeat: no-repeat;
+  margin: 0 auto;
+  border-radius: 5px;
+  height: 646px;
+  width: 100%;
+  padding-left: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  h2 {
+    margin: 0;
+    @include heading1;
+    color: #ffffff;
+  }
+
+  p {
+    margin: 16px 0 48px 0;
+    font-family: "DM Sans";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 35px;
+    color: #ffffff;
+  }
+
+  button {
+    background-color: transparent;
+    border: 2px solid white;
+    width: 200px;
+    border-radius: 6px;
+    padding: 14px 32px;
+    font-family: "DM Sans";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 26px;
+    color: #ffffff;
+    cursor: pointer;
+  }
+}

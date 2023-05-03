@@ -1,0 +1,29 @@
+@import "../../design/mixins.scss";
+
+.latest {
+  width: 100%;
+  margin-top: 64px;
+  &Title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+
+    h2 {
+      @include heading1;
+    }
+
+    a {
+      @include heading4;
+      color: #a18a68;
+    }
+  }
+
+  .products {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 80px 54px;
+    margin-bottom: 250px;
+  }
+}

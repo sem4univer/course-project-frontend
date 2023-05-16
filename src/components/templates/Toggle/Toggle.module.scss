@@ -1,0 +1,18 @@
+.toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  button {
+    height: 20px;
+    width: 33px;
+    border-radius: 10px;
+    border: none;
+  }
+  .notActiveButton {
+    background-color: var(--dark-gray-color);
+  }
+  .activeButton {
+    background-color: var(--gray-color);
+  }
+}

@@ -1,0 +1,27 @@
+.filters {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 260px;
+}
+
+.search {
+  border-bottom: 1px solid var(--light-gray-color);
+}
+
+.selects {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  select {
+    position: relative;
+    border: 1px solid var(--light-gray-color);
+    padding: 16px 12px;
+    appearance: none;
+    outline: none;
+    background-image: url("../../assets/icons/arrow-down.svg");
+    background-position: calc(100% - 12px) center;
+    background-repeat: no-repeat;
+  }
+}

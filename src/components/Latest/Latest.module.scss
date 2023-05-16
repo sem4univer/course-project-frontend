@@ -1,0 +1,10 @@
+.latest {
+  flex: 1;
+
+  .products {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 80px 54px;
+    margin-bottom: 250px;
+  }
+}

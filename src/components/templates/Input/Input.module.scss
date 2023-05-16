@@ -1,0 +1,32 @@
+@import "../../../design/mixins.scss";
+
+.input {
+  border-bottom: 1px solid var(--black-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  input {
+    padding-bottom: 15px;
+    border: none;
+    width: 95%;
+    outline: none;
+    color: #707070;
+    @include heading3;
+    &::placeholder {
+      @include heading5;
+      color: var(--dark-gray-color);
+    }
+  }
+
+  button {
+    background-color: inherit;
+    border: none;
+    cursor: pointer;
+    padding-bottom: 5px;
+    svg {
+      width: 19px;
+      height: 19px;
+    }
+  }
+}

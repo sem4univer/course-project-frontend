@@ -1,0 +1,17 @@
+@import "../../design/mixins.scss";
+
+.shop {
+  display: flex;
+  flex-direction: column;
+
+  h2 {
+    @include heading1;
+    margin-top: 96px;
+    margin-bottom: 38px;
+  }
+
+  .wrapper {
+    display: flex;
+    gap: 36px;
+  }
+}

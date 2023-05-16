@@ -12,6 +12,7 @@
   display: flex;
   flex-direction: column;
   gap: 50px;
+
   ul {
     margin-top: 50px;
     display: flex;
@@ -20,39 +21,29 @@
       @include heading5;
       color: #707070;
       text-transform: uppercase;
+      &:hover,
+      &:active {
+        color: var(--black-color);
+      }
     }
+  }
+
+  p {
+    @include heading5;
+    color: var(--dark-gray-color);
   }
 
   span {
     @include heading5;
+    color: var(--gray-color);
   }
 }
 
 .socialMedias {
+  margin-top: 37px;
+
   .email {
-    margin-top: 37px;
-    border-bottom: 1px solid black;
     width: 400px;
-    display: flex;
-    justify-content: space-between;
-
-    input {
-      padding-bottom: 15px;
-      border: none;
-      width: 95%;
-      outline: none;
-      color: #707070;
-      @include heading3;
-      &::placeholder {
-        @include heading5;
-      }
-    }
-
-    button {
-      background-color: inherit;
-      border: none;
-      cursor: pointer;
-    }
   }
 
   .logos {

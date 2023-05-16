@@ -6,15 +6,28 @@
   justify-content: space-between;
   align-items: center;
   margin-top: 50px;
-  margin-bottom: 16px;
+  padding-bottom: 16px;
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 97.5%;
+    height: 1px;
+    background-color: var(--light-gray-color);
+  }
 
-  h1 {
+  .title {
     text-transform: uppercase;
     font-family: "Allerta Stencil";
     font-style: normal;
     font-weight: 400;
     font-size: 35px;
     line-height: 40px;
+    color: var(--black-color);
     &::first-letter {
       color: #a18a68;
     }
@@ -36,11 +49,20 @@
 
     li {
       @include heading5;
-      display: flex;
-      align-items: center;
+
       a {
         color: #000000;
+        padding-bottom: 24px;
+        transition: border-bottom 0.2s ease;
+        &:active {
+          border-bottom: 2px solid var(--black-color);
+        }
       }
     }
+  }
+
+  .medias li {
+    width: 20px;
+    height: 20px;
   }
 }

@@ -1,0 +1,11 @@
+@import "../../design/mixins.scss";
+
+.similar h3 {
+  @include heading2;
+  margin-bottom: 48px;
+}
+.items {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 54px;
+}

@@ -14,7 +14,7 @@ export const Home: React.FC = () => {
       <Hoops />
       <div className={styles.latestTitle}>
         <h2>Shop The Latest</h2>
-        <Link to="/">View All</Link>
+        <Link to="/shop">View All</Link>
       </div>
       <Latest items={productItems} />
     </Page>

@@ -1,11 +1,10 @@
+import { useTypedSelector } from "../../hooks/redux";
+
 import styles from "./Shop.module.scss";
 
 import { Filters } from "../../components/Filters";
 import { Latest } from "../../components/Latest";
 import { Page } from "../../components/templates/Page";
-import { useTypedSelector } from "../../hooks/redux";
-
-// import { productItems } from './constants';
 
 export const Shop: React.FC = () => {
   const { products } = useTypedSelector((state) => state.productReducer);

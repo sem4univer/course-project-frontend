@@ -6,4 +6,5 @@ export interface ButtonProps
   color: string;
   children: ReactNode;
   type?: "button" | "submit";
+  onClick?: () => void;
 }

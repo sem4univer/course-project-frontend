@@ -85,6 +85,10 @@
     .cartButton {
       flex: 1;
       text-transform: uppercase;
+      &:active {
+        color: var(--white-color);
+        background-color: var(--black-color);
+      }
     }
   }
 

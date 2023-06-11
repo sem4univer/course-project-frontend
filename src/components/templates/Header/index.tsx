@@ -9,7 +9,11 @@ import { ReactComponent as SearchIcon } from "../../../assets/icons/search.svg";
 import { ReactComponent as UserIcon } from "../../../assets/icons/user.svg";
 import { ReactComponent as ShoppingCartIcon } from "../../../assets/icons/shopping-cart.svg";
 
-export const Header: React.FC<HeaderProps> = ({ className, ...props }) => {
+export const Header: React.FC<HeaderProps> = ({
+  className,
+  onClickCart,
+  ...props
+}) => {
   return (
     <header className={cn(styles.header, className)} {...props}>
       <Link to="/" className={styles.title}>
@@ -48,10 +52,8 @@ export const Header: React.FC<HeaderProps> = ({ className, ...props }) => {
               <SearchIcon />
             </Link>
           </li>
-          <li>
-            <Link to="/">
-              <ShoppingCartIcon />
-            </Link>
+          <li className={styles.drawer}>
+            <ShoppingCartIcon onClick={onClickCart} />
           </li>
           <li>
             <Link to="/">

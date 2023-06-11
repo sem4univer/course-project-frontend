@@ -3,10 +3,10 @@ import cn from "classnames";
 
 import { ProductAdditionalProps } from "./types";
 
-import { ReviewForm } from "../ReviewForm";
-import { Rating } from "../Rating";
-
 import styles from "./ProductAdditional.module.scss";
+
+import { Features } from "../Features";
+import { Reviews } from "../Reviews";
 
 export const ProductAdditional: React.FC<ProductAdditionalProps> = ({
   title,
@@ -49,47 +49,16 @@ export const ProductAdditional: React.FC<ProductAdditionalProps> = ({
         <p className={cn(styles.section, styles.description)}>{shortDesc}</p>
       )}
       {activeSection === "additional" && (
-        <div className={cn(styles.section, styles.features)}>
-          <div>
-            <span>Weight:</span>
-            <p>{weight} kg</p>
-          </div>
-          <div>
-            <span>Dimensions:</span>
-            <p>
-              {`${dimensions.height} x ${dimensions.width} x ${dimensions.depth} `}
-              cm
-            </p>
-          </div>
-          <div>
-            <span>Colours:</span>
-            <p>{colors.join(", ")}</p>
-          </div>
-          <div>
-            <span>Material:</span>
-            <p>{material}</p>
-          </div>
-        </div>
+        <Features
+          className={styles.section}
+          weight={weight}
+          dimensions={dimensions}
+          colors={colors}
+          material={material}
+        />
       )}
       {activeSection === "reviews" && (
-        <div className={cn(styles.section, styles.reviews)}>
-          <div className={styles.ratings}>
-            <h3 className={styles.quantity}>
-              {reviews.length} Reviews for {title}
-            </h3>
-            {reviews.map((review, index) => (
-              <div key={index} className={styles.review}>
-                <div className={styles.title}>
-                  <h3>{review.title}</h3>
-                  <p>{review.date}</p>
-                </div>
-                <Rating rating={review.rating} />
-                <p className={styles.description}>{review.description}</p>
-              </div>
-            ))}
-          </div>
-          <ReviewForm />
-        </div>
+        <Reviews className={styles.section} reviews={reviews} title={title} />
       )}
     </section>
   );

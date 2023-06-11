@@ -1,0 +1,26 @@
+@import "../../design/mixins.scss";
+
+.error {
+  margin-top: 256px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  h1 {
+    @include heading1;
+    text-transform: uppercase;
+  }
+
+  p {
+    @include heading3;
+    color: var(--dark-gray-color);
+    margin-top: 24px;
+    margin-bottom: 64px;
+  }
+
+  button {
+    text-transform: uppercase;
+    padding: 16px 50px;
+  }
+}

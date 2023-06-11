@@ -10,8 +10,39 @@ import { ReactComponent as TwitterIcon } from "../../assets/icons/twitter.svg";
 import { ReactComponent as InstagramIcon } from "../../assets/icons/instagram.svg";
 import { ReactComponent as MailIcon } from "../../assets/icons/mail.svg";
 import { ReactComponent as HeartIcon } from "../../assets/icons/heart.svg";
+import { useState } from "react";
+import { useTypedDispatch, useTypedSelector } from "../../hooks/redux";
+import { cartSlice } from "../../store/reducers/CartSlice";
 
 export const ProductCard: React.FC<ProductProps> = ({ product }) => {
+  const dispatch = useTypedDispatch();
+
+  const { cartItems } = useTypedSelector((state) => state.cartReducer);
+  const cartQuantity = cartItems.find(
+    (item) => item.id === product.id
+  )?.quantity;
+
+  const [quantity, setQuantity] = useState(cartQuantity || 1);
+
+  const onDecreaseQuanity = () => {
+    if (quantity > 1) setQuantity((prev) => prev - 1);
+  };
+  const onIncreaseQuanity = () => {
+    if (quantity < 9) setQuantity((prev) => prev + 1);
+  };
+
+  const onAddToCart = () => {
+    dispatch(
+      cartSlice.actions.addCartItem({
+        id: product.id,
+        title: product.title,
+        quantity,
+        price: product.price,
+        image: product.image,
+      })
+    );
+  };
+
   return (
     <section className={styles.productCard}>
       <div className={styles.photos}>
@@ -28,7 +59,7 @@ export const ProductCard: React.FC<ProductProps> = ({ product }) => {
       </div>
       <div className={styles.description}>
         <h3>{product.title}</h3>
-        <span className={styles.price}>{product.price}</span>
+        <span className={styles.price}>$ {product.price},00</span>
         <div className={styles.reviews}>
           <Rating reviews={product.reviews} />
           <p>{product.reviews.length} customer review</p>
@@ -36,11 +67,16 @@ export const ProductCard: React.FC<ProductProps> = ({ product }) => {
         <p className={styles.shortDesc}>{product.description}</p>
         <div className={styles.buttons}>
           <div>
-            <button>-</button>
-            <span>1</span>
-            <button>+</button>
+            <button onClick={onDecreaseQuanity}>-</button>
+            <span>{quantity}</span>
+            <button onClick={onIncreaseQuanity}>+</button>
           </div>
-          <Button type="button" className={styles.cartButton} color="white">
+          <Button
+            type="button"
+            className={styles.cartButton}
+            color="white"
+            onClick={onAddToCart}
+          >
             Add to cart
           </Button>
         </div>

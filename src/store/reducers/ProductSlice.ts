@@ -3,7 +3,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 interface Product {
   id: number;
   title: string;
-  price: string;
+  price: number;
   image: string;
   discount?: string;
   soldout?: boolean;
@@ -34,7 +34,7 @@ const initialState: ProductState = {
     {
       id: 1,
       title: "Lira Earrings",
-      price: "$ 20,00",
+      price: 20,
       image: "product-item-1.jpg",
       discount: "- %21",
       description:
@@ -64,7 +64,7 @@ const initialState: ProductState = {
     {
       id: 2,
       title: "Hal Earrings",
-      price: "$ 25,00",
+      price: 25,
       image: "product-item-2.jpg",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam placerat, augue a volutpat hendrerit, sapien tortor faucibus augue, a maximus elit ex vitae libero. Sed quis mauris eget arcu facilisis consequat sed eu felis.",
@@ -93,7 +93,7 @@ const initialState: ProductState = {
     {
       id: 3,
       title: "Kaede Hair Pin Set Of 3",
-      price: "$ 30,00",
+      price: 30,
       image: "product-item-3.jpg",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam placerat, augue a volutpat hendrerit, sapien tortor faucibus augue, a maximus elit ex vitae libero. Sed quis mauris eget arcu facilisis consequat sed eu felis.",
@@ -122,7 +122,7 @@ const initialState: ProductState = {
     {
       id: 4,
       title: "Hair Pin Set of 3",
-      price: "$ 30,00",
+      price: 30,
       image: "product-item-4.jpg",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam placerat, augue a volutpat hendrerit, sapien tortor faucibus augue, a maximus elit ex vitae libero. Sed quis mauris eget arcu facilisis consequat sed eu felis.",
@@ -151,7 +151,7 @@ const initialState: ProductState = {
     {
       id: 5,
       title: "Plaine Necklace",
-      price: "$ 19,00",
+      price: 19,
       image: "product-item-5.jpg",
       soldout: true,
       description:
@@ -181,7 +181,7 @@ const initialState: ProductState = {
     {
       id: 6,
       title: "Yuki Hair Pin Set of 3",
-      price: "$ 29,00",
+      price: 29,
       image: "product-item-6.jpg",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam placerat, augue a volutpat hendrerit, sapien tortor faucibus augue, a maximus elit ex vitae libero. Sed quis mauris eget arcu facilisis consequat sed eu felis.",

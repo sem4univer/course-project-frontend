@@ -18,7 +18,7 @@ export const Card: React.FC<CardProps> = ({
       {discount && <span className={styles.discount}>{discount}</span>}
       {soldout && <span className={styles.soldout}>Sold out</span>}
       <p>{title}</p>
-      <span>{price}</span>
+      <span>$ {price},00</span>
     </Link>
   );
 };

@@ -9,13 +9,14 @@ export const Button: React.FC<ButtonProps> = ({
   children,
   type,
   color,
+  onClick,
 }) => {
   const buttonClass = cn(styles.button, className, {
-    [styles[color]]: color, // apply the class with the name equal to the value of the color prop
+    [styles[color]]: color,
   });
 
   return (
-    <button type={type} className={buttonClass}>
+    <button type={type} className={buttonClass} onClick={onClick}>
       {children}
     </button>
   );

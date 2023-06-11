@@ -4,6 +4,7 @@ import { useTypedSelector } from "../../hooks/redux";
 import { Page } from "../../components/templates/Page";
 import { ProductAdditional } from "../../components/ProductAdditional";
 import { Similar } from "../../components/Similar";
+import { Error } from "../Error";
 
 export const Product: React.FC = () => {
   const { shopId } = useParams();
@@ -13,7 +14,7 @@ export const Product: React.FC = () => {
   ).find((product) => product.id === Number(shopId));
 
   if (!product) {
-    return <h2>Product not found</h2>;
+    return <Error />;
   }
 
   return (

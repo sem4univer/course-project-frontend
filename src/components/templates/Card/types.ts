@@ -1,8 +1,7 @@
-import { ComponentProps } from "react";
-
-export interface CardProps extends ComponentProps<"div"> {
+export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
+  shopId: number;
   title: string;
-  price: string;
+  price: number;
   image: string;
   discount?: string;
   soldout?: boolean;

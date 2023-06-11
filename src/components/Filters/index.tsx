@@ -3,6 +3,7 @@ import styles from "./Filters.module.scss";
 import { Input } from "../templates/Input";
 import { RangeInput } from "../templates/RangeInput";
 import { Toggle } from "../templates/Toggle";
+import { Select } from "../templates/Select";
 
 import { ReactComponent as SearchIcon } from "../../assets/icons/search.svg";
 
@@ -10,17 +11,15 @@ export const Filters: React.FC = () => {
   return (
     <div className={styles.filters}>
       <Input
+        name="search"
+        id="search"
         placeholder="Search..."
         svg={SearchIcon}
         className={styles.search}
       />
       <div className={styles.selects}>
-        <select name="shop" id="shop">
-          <option value="Shop by">Shop by</option>
-        </select>
-        <select name="sort" id="sort">
-          <option value="Sort by">Sort by</option>
-        </select>
+        <Select name="shop" id="shop" value="Shop by" />
+        <Select name="sort" id="sort" value="Sort by" />
       </div>
       <RangeInput min={0} max={180} />
       <Toggle option="On sale" />

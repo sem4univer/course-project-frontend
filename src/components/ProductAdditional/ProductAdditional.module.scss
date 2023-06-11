@@ -1,0 +1,46 @@
+@import "../../design/mixins.scss";
+
+.sections {
+  display: flex;
+  gap: 96px;
+  border-bottom: 1px solid var(--light-gray-color);
+  margin-bottom: 40px;
+
+  button {
+    @include heading3;
+    color: var(--dark-gray-color);
+    border: none;
+    padding-bottom: 34px;
+    border-bottom: 1px solid var(--white-color);
+
+    &:active {
+      border-bottom: 1px solid var(--black-color);
+    }
+  }
+
+  .active {
+    color: var(--black-color);
+    border-bottom: 1px solid var(--black-color);
+  }
+}
+
+.section {
+  margin-bottom: 96px;
+  p {
+    @include heading5;
+    color: var(--dark-gray-color);
+  }
+  span {
+    @include heading5;
+    color: var(--black-color);
+  }
+  h3 {
+    @include heading3;
+    color: var(--black-color);
+  }
+}
+
+.description {
+  @include heading5;
+  color: var(--dark-gray-color);
+}

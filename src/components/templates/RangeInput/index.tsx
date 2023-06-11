@@ -6,7 +6,7 @@ import {
   useState,
   useRef,
 } from "react";
-import classnames from "classnames";
+import cn from "classnames";
 
 import { RangeInputProps } from "./types";
 
@@ -61,7 +61,7 @@ export const RangeInput: FC<RangeInputProps> = ({ min, max }) => {
           setMinVal(value);
           event.target.value = value.toString();
         }}
-        className={classnames(styles.thumb, styles["thumb--zindex-3"], {
+        className={cn(styles.thumb, styles["thumb--zindex-3"], {
           [styles["thumb--zindex-5"]]: minVal > max - 100,
         })}
       />
@@ -76,7 +76,7 @@ export const RangeInput: FC<RangeInputProps> = ({ min, max }) => {
           setMaxVal(value);
           event.target.value = value.toString();
         }}
-        className={classnames(styles.thumb, styles["thumb--zindex-4"])}
+        className={cn(styles.thumb, styles["thumb--zindex-4"])}
       />
       <div className={styles.slider}>
         <div className={styles["slider__track"]}></div>

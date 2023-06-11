@@ -1,0 +1,50 @@
+@import "../../design/mixins.scss";
+
+.reviewForm {
+  h3 {
+    @include heading3;
+  }
+  p {
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 30px;
+  }
+  .required {
+    margin-top: 10px;
+    margin-bottom: 46px;
+  }
+
+  .fields {
+    display: flex;
+    flex-direction: column;
+    gap: 46px;
+  }
+
+  .checkbox {
+    display: flex;
+    gap: 8px;
+    margin-top: 26px;
+    margin-bottom: 48px;
+
+    input {
+      width: 18px;
+      height: 18px;
+    }
+
+    label {
+      color: var(--dark-gray-color);
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 16px;
+    }
+  }
+
+  .rating {
+    margin-bottom: 12px;
+  }
+
+  .submit {
+    margin-top: 48px;
+    padding: 16px 34px;
+  }
+}

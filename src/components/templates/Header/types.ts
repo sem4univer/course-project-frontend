@@ -1,3 +1,4 @@
-import { ComponentProps } from "react";
-
-export type HeaderProps = ComponentProps<"header">;
+export interface HeaderProps extends React.HTMLAttributes<HTMLHeadElement> {
+  className?: string;
+  onClickCart: () => void;
+}

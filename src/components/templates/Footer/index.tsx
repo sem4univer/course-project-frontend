@@ -37,6 +37,8 @@ export const Footer: React.FC<FooterProps> = ({ className, ...props }) => {
         <Input
           className={styles.email}
           placeholder="Give an email, get the newsletter."
+          name="email"
+          id="email"
           svg={ArrowIcon}
         />
         <div className={styles.logos}>

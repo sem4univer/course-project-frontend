@@ -124,4 +124,9 @@ table {
 a {
   text-decoration: none;
   color: var(--black-color);
+  cursor: pointer;
+}
+button {
+  cursor: pointer;
+  background-color: inherit;
 }

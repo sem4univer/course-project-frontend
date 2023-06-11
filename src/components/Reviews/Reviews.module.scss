@@ -1,0 +1,24 @@
+.reviews {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 88px;
+}
+.ratings {
+  .quantity {
+    margin-bottom: 76px;
+  }
+
+  .review {
+    max-width: 580px;
+
+    .title {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .description {
+      margin-top: 24px;
+    }
+  }
+}

@@ -79,7 +79,7 @@ const initialState: ProductState = {
         depth: 1,
       },
       colors: ["Black", "Brown", "White"],
-      material: "Metal",
+      material: "Gold",
       reviews: [
         {
           title: "Scarlet withch",
@@ -108,7 +108,7 @@ const initialState: ProductState = {
         depth: 1,
       },
       colors: ["Black", "Brown", "White"],
-      material: "Metal",
+      material: "Gold",
       reviews: [
         {
           title: "Scarlet withch",
@@ -137,7 +137,7 @@ const initialState: ProductState = {
         depth: 1,
       },
       colors: ["Black", "Brown", "White"],
-      material: "Metal",
+      material: "Plastic",
       reviews: [
         {
           title: "Scarlet withch",
@@ -167,7 +167,7 @@ const initialState: ProductState = {
         depth: 1,
       },
       colors: ["Black", "Brown", "White"],
-      material: "Metal",
+      material: "Gold",
       reviews: [
         {
           title: "Scarlet withch",
@@ -196,7 +196,7 @@ const initialState: ProductState = {
         depth: 1,
       },
       colors: ["Black", "Brown", "White"],
-      material: "Metal",
+      material: "Plastic",
       reviews: [
         {
           title: "Scarlet withch",

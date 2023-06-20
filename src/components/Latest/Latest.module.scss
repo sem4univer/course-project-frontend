@@ -1,3 +1,5 @@
+@import "../../design/mixins.scss";
+
 .latest {
   flex: 1;
 
@@ -5,5 +7,9 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 80px 54px;
+  }
+
+  h1 {
+    @include heading1;
   }
 }

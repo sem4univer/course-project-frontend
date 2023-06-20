@@ -1,5 +1,5 @@
 export interface SelectProps {
   name: string;
-  id: string;
-  value: string;
+  options: string[];
+  onChange: (optionValue: string) => void;
 }

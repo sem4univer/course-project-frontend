@@ -48,7 +48,7 @@ export const Header: React.FC<HeaderProps> = ({
         </svg>
         <ul className={styles.medias}>
           <li>
-            <Link to="/">
+            <Link to="/shop">
               <SearchIcon />
             </Link>
           </li>

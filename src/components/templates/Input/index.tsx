@@ -13,6 +13,7 @@ export const Input: React.FC<InputProps> = ({
   name,
   id,
   svg: SvgComponent,
+  required,
 }) => {
   const onChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
     if (onChange) onChange(event);
@@ -27,6 +28,7 @@ export const Input: React.FC<InputProps> = ({
         name={name}
         id={id}
         placeholder={placeholder}
+        required={required}
       />
       {SvgComponent && (
         <button>

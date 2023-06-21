@@ -8,4 +8,5 @@ export interface InputProps extends React.HTMLAttributes<HTMLDivElement> {
   name: string;
   id: string;
   svg?: React.FunctionComponent<SVGProps<SVGSVGElement>>;
+  required?: boolean;
 }

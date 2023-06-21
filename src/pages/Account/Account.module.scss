@@ -1,0 +1,33 @@
+@import "../../design/mixins.scss";
+
+.account {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding-top: 128px;
+
+  .title {
+    @include heading1;
+  }
+
+  .sides {
+    width: 500px;
+    height: 60px;
+    padding: 5px;
+    border-radius: 8px;
+    background-color: var(--light-gray-color);
+    display: flex;
+    margin-top: 64px;
+
+    button {
+      flex: 1;
+      border-radius: 8px;
+      border: none;
+    }
+
+    .active {
+      background-color: var(--white-color);
+    }
+  }
+}

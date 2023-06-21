@@ -56,7 +56,7 @@ export const Header: React.FC<HeaderProps> = ({
             <ShoppingCartIcon onClick={onClickCart} />
           </li>
           <li>
-            <Link to="/">
+            <Link to="/account">
               <UserIcon />
             </Link>
           </li>

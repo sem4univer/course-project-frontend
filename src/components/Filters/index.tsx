@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import styles from "./Filters.module.scss";
 
 import { Input } from "../templates/Input";
@@ -6,24 +8,44 @@ import { Toggle } from "../templates/Toggle";
 import { Select } from "../templates/Select";
 
 import { ReactComponent as SearchIcon } from "../../assets/icons/search.svg";
+import { FilterProps } from "./types";
 
-export const Filters: React.FC = () => {
+const shopOptions = ["Metal", "Gold", "Plastic"];
+const sortOptions = ["Ascending price", "Descending price"];
+
+export const Filters: React.FC<FilterProps> = ({
+  onChange,
+  onSaleChange,
+  onStockChange,
+  onRangeClick,
+  onShopChange,
+  onSortChange,
+}) => {
+  const [searchValue, setSearchValue] = useState("");
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchValue(event.target.value);
+    onChange(event.target.value);
+  };
+
   return (
     <div className={styles.filters}>
       <Input
         name="search"
         id="search"
         placeholder="Search..."
+        value={searchValue}
+        onChange={handleInputChange}
         svg={SearchIcon}
         className={styles.search}
       />
       <div className={styles.selects}>
-        <Select name="shop" id="shop" value="Shop by" />
-        <Select name="sort" id="sort" value="Sort by" />
+        <Select name="Shop" options={shopOptions} onChange={onShopChange} />
+        <Select name="Sort" options={sortOptions} onChange={onSortChange} />
       </div>
-      <RangeInput min={0} max={180} />
-      <Toggle option="On sale" />
-      <Toggle option="In stock" />
+      <RangeInput onClick={onRangeClick} min={0} max={180} />
+      <Toggle option="On sale" onClick={onSaleChange} />
+      <Toggle option="In stock" onClick={onStockChange} />
     </div>
   );
 };

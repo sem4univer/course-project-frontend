@@ -1,0 +1,15 @@
+.register {
+  margin-top: 126px;
+
+  .input + .input {
+    margin-top: 46px;
+  }
+
+  .input:last-of-type {
+    margin-bottom: 70px;
+  }
+
+  button {
+    padding: 16px 220px;
+  }
+}

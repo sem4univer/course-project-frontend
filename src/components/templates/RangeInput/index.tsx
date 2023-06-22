@@ -12,7 +12,7 @@ import { RangeInputProps } from "./types";
 
 import styles from "./RangeInput.module.scss";
 
-export const RangeInput: FC<RangeInputProps> = ({ min, max }) => {
+export const RangeInput: FC<RangeInputProps> = ({ min, max, onClick }) => {
   const [minVal, setMinVal] = useState(min);
   const [maxVal, setMaxVal] = useState(max);
 
@@ -84,7 +84,12 @@ export const RangeInput: FC<RangeInputProps> = ({ min, max }) => {
         <div className={styles["slider__left-value"]}>
           Price: ${minVal} - {maxVal}
         </div>
-        <button className={styles["slider__right-button"]}>Filter</button>
+        <button
+          onClick={() => onClick(minVal, maxVal)}
+          className={styles["slider__right-button"]}
+        >
+          Filter
+        </button>
       </div>
     </div>
   );

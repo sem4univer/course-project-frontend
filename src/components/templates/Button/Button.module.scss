@@ -10,10 +10,23 @@
 .white {
   border: 1px solid var(--black-color);
   background-color: var(--white-color);
+  color: var(--black-color);
+
+  &:active {
+    border: 1px solid var(--white-color);
+    background-color: var(--black-color);
+    color: var(--white-color);
+  }
 }
 
 .black {
   border: 1px solid var(--white-color);
   background-color: var(--black-color);
   color: var(--white-color);
+
+  &:active {
+    border: 1px solid var(--black-color);
+    background-color: var(--white-color);
+    color: var(--black-color);
+  }
 }

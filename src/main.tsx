@@ -7,6 +7,7 @@ import { setupStore } from "./store/store";
 import { Home } from "./pages/Home";
 import { Shop } from "./pages/Shop";
 import { Product } from "./pages/Product";
+import { Account } from "./pages/Account";
 
 import "./design/index.scss";
 
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
   {
     path: "/shop/:shopId",
     element: <Product />,
+  },
+  {
+    path: "/account",
+    element: <Account />,
   },
 ]);
 

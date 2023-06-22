@@ -4,11 +4,12 @@ import styles from "./Toggle.module.scss";
 
 import { ToggleProps } from "./types";
 
-export const Toggle: React.FC<ToggleProps> = ({ option }) => {
+export const Toggle: React.FC<ToggleProps> = ({ option, onClick }) => {
   const [isOn, setIsOn] = useState(false);
 
   const handleClick = () => {
     setIsOn((prev) => !prev);
+    onClick(isOn);
   };
 
   return (

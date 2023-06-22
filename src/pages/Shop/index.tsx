@@ -1,4 +1,7 @@
+/* eslint-disable no-prototype-builtins */
+import { useEffect, useState } from "react";
 import { useTypedSelector } from "../../hooks/redux";
+import { FilterParams, Product } from "./types";
 
 import styles from "./Shop.module.scss";
 
@@ -8,12 +11,104 @@ import { Page } from "../../components/templates/Page";
 
 export const Shop: React.FC = () => {
   const { products } = useTypedSelector((state) => state.productReducer);
+  const [filteredProducts, setFilteredProducts] = useState<Product[]>([
+    ...products,
+  ]);
+
+  const [filterParams, setFilterParams] = useState<FilterParams>({
+    search: "",
+    min: 0,
+    max: 180,
+    sale: true,
+    stock: true,
+    material: "",
+    sort: "",
+  });
+
+  const searchHandler = (inputValue: string) => {
+    setFilterParams({ ...filterParams, search: inputValue });
+  };
+
+  const saleHandler = (onSale: boolean) => {
+    setFilterParams({ ...filterParams, sale: onSale });
+  };
+
+  const stockHandler = (inStock: boolean) => {
+    setFilterParams({ ...filterParams, stock: inStock });
+  };
+
+  const rangeHandler = (min: number, max: number) => {
+    setFilterParams({ ...filterParams, min: min, max: max });
+  };
+
+  const shopSelectHandler = (material: string) => {
+    setFilterParams({ ...filterParams, material: material });
+  };
+
+  const sortSelectHandler = (order: string) => {
+    setFilterParams({ ...filterParams, sort: order });
+  };
+
+  useEffect(() => {
+    setFilteredProducts([...products]);
+
+    setFilteredProducts((items) =>
+      items.filter((item: Product) =>
+        item.title.toLowerCase().includes(filterParams.search.toLowerCase())
+      )
+    );
+
+    if (!filterParams.sale) {
+      setFilteredProducts((items) =>
+        items.filter((item: Product) => item.hasOwnProperty("discount"))
+      );
+    }
+
+    if (!filterParams.stock) {
+      setFilteredProducts((items) =>
+        items.filter((item: Product) => !item.hasOwnProperty("soldout"))
+      );
+    }
+
+    if (filterParams.material) {
+      setFilteredProducts((items) =>
+        items.filter((item: Product) => item.material === filterParams.material)
+      );
+    }
+
+    if (filterParams.sort) {
+      if (filterParams.sort === "Ascending price") {
+        setFilteredProducts((items) =>
+          items.sort((a: Product, b: Product) => a.price - b.price)
+        );
+      } else {
+        setFilteredProducts((items) =>
+          items.sort((a: Product, b: Product) => b.price - a.price)
+        );
+      }
+    }
+
+    setFilteredProducts((items) =>
+      items.filter(
+        (item: Product) =>
+          item.price >= filterParams.min && item.price <= filterParams.max
+      )
+    );
+  }, [filterParams, products]);
+
   return (
     <Page className={styles.shop}>
       <h2>Shop The Latest</h2>
       <div className={styles.wrapper}>
-        <Filters />
-        <Latest items={products} />
+        <Filters
+          onChange={searchHandler}
+          onSaleChange={saleHandler}
+          onStockChange={stockHandler}
+          onRangeClick={rangeHandler}
+          onShopChange={shopSelectHandler}
+          onSortChange={sortSelectHandler}
+        />
+        <Latest items={filteredProducts} />
       </div>
     </Page>
   );

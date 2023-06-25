@@ -9,16 +9,20 @@ import styles from "./Drawer.module.scss";
 
 import { CartProduct } from "../CartProduct";
 import { cartSlice } from "../../store/reducers/CartSlice";
+import { useCallback } from "react";
 
 const Drawer: React.FC<DrawerProps> = ({ opened, onCloseCart }) => {
   const { cartItems } = useTypedSelector((state) => state.cartReducer);
   const dispatch = useTypedDispatch();
 
-  const closeCartHandler = (event: React.MouseEvent<HTMLDivElement>) => {
-    if (event.target === event.currentTarget) {
-      onCloseCart();
-    }
-  };
+  const closeCartHandler = useCallback(
+    (event: React.MouseEvent<HTMLDivElement>) => {
+      if (event.target === event.currentTarget) {
+        onCloseCart();
+      }
+    },
+    [onCloseCart]
+  );
 
   const subtotal = cartItems.reduce(
     (acc, item) => acc + item.price * item.quantity,

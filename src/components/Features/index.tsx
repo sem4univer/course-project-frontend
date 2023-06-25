@@ -2,6 +2,7 @@ import cn from "classnames";
 
 import styles from "./Features.module.scss";
 import { FeaturesProps } from "./types";
+import { useMemo } from "react";
 
 export const Features: React.FC<FeaturesProps> = ({
   className,
@@ -11,6 +12,8 @@ export const Features: React.FC<FeaturesProps> = ({
   material,
   ...props
 }) => {
+  const joinedColors = useMemo(() => colors.join(", "), [colors]);
+
   return (
     <div className={cn(styles.features, className)} {...props}>
       <div>
@@ -26,7 +29,7 @@ export const Features: React.FC<FeaturesProps> = ({
       </div>
       <div>
         <span>Colours:</span>
-        <p>{colors.join(", ")}</p>
+        <p>{joinedColors}</p>
       </div>
       <div>
         <span>Material:</span>
